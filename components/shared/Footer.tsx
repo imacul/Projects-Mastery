@@ -9,16 +9,17 @@ const Footer = () => {
         <Link href="/">
           <Image
             src="/assets/logo.png"
-            alt='Projects Mastery Logo'
-            width={105}
+            alt="Projects Matery Logo"
+            width={70}
             height={38}
+            className="md:w-[6rem]"
           />
         </Link>
 
         <p className="text-white">2023 Projects Mastery. All Rights reserved</p>
       </div>
     </footer>
-  )
+  );
 }
 
 export default Footer;

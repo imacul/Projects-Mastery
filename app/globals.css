@@ -206,6 +206,10 @@ body {
     @apply font-bold text-[28px] leading-[36px];
   }
 
+  .h5-medium{
+    @pply font-normal text-[15px] 
+  }
+
   /* 24 */
   .p-bold-24 {
     @apply font-bold text-[24px] leading-[36px];

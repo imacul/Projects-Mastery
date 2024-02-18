@@ -6,6 +6,7 @@ import { offers } from '@/constants';
 
 import Image from 'next/image';
 import Link from 'next/link';
+// import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 
 interface FAQItem {
   question: string;
@@ -73,7 +74,7 @@ const page = () => {
   
   return (
     <>
-      <section className="bg-contain py-10 md:py-10">
+      <section className="bg-contain py-10 md:py-10 mt-[8rem]">
         <div className="wrapper grid grid-cols gap-3 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-3">
             <h1 className="h1-bold text-transparent bg-clip-text  bg-gradient-to-r from-purple-500 to-red-500">
@@ -95,6 +96,7 @@ const page = () => {
           />
         </div>
       </section>
+      {/* <section><BackgroundGradientAnimation /></section> */}
       <section className="sky_bg my-8 flex flex-col gap-8 md:gap-12">
         <div className="wrapper">
           <h2 className="h2-bold text-blue-500 my-5">What do we offer?</h2>

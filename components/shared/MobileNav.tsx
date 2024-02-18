@@ -20,7 +20,7 @@ const MobileNav = () => {
     <nav className="md:hidden">
       <Sheet>
         <SheetTrigger className="align-middle">
-          <FaBars className="w-10 h-10 text-purple-500 " />
+          <FaBars className="w-8 h-8 text-purple-500 " />
         </SheetTrigger>
         <SheetContent className="flex flex-col gap-6 bg-gradient md:hidden">
           <Image
