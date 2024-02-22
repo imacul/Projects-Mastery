@@ -11,6 +11,10 @@ export const headerLinks = [
     label: "Full-Stack",
     route: "/full_stack",
   },
+  {
+    label: "Mentainance",
+    route: "/mentainance",
+  },
 ];
 
 export const eventDefaultValues = {
