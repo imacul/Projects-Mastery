@@ -76,16 +76,13 @@ export type GetRelatedEventsByCategoryParams = {
   page: number | string;
 };
 
-export type Event = {
+export type WebTemplates = {
   _id: string;
   title: string;
   description: string;
   price: string;
   isFree: boolean;
   imageUrl: string;
-  location: string;
-  startDateTime: Date;
-  endDateTime: Date;
   url: string;
   organizer: {
     _id: string;
@@ -120,16 +117,6 @@ export type CreateOrderParams = {
   createdAt: Date;
 };
 
-export type GetOrdersByEventParams = {
-  eventId: string;
-  searchString: string;
-};
-
-export type GetOrdersByUserParams = {
-  userId: string | null;
-  limit?: number;
-  page: string | number | null;
-};
 
 // ====== URL QUERY PARAMS
 export type UrlQueryParams = {
@@ -138,10 +125,6 @@ export type UrlQueryParams = {
   value: string | null;
 };
 
-export type RemoveUrlQueryParams = {
-  params: string;
-  keysToRemove: string[];
-};
 
 export type SearchParamProps = {
   params: { id: string };

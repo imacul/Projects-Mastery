@@ -1,17 +1,17 @@
 export const headerLinks = [
   {
-    label: 'Home',
-    route: '/',
+    label: "Courses",
+    route: "/courses",
   },
   {
-    label: 'Products',
-    route: '/',
+    label: "Web-Templates",
+    route: "/web_templates",
   },
   {
-    label: 'Blog',
-    route: '/',
+    label: "Full-Stack",
+    route: "/full_stack",
   },
-]
+];
 
 export const eventDefaultValues = {
   title: '',
