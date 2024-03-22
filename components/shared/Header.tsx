@@ -5,7 +5,7 @@ import NavItems from '@/components/shared/NavItems';
 import MobileNav from '@/components/shared/MobileNav';
 
 import { Button } from '@/components/ui/button';
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+
 
 const Header = () => {
   return (
@@ -22,31 +22,23 @@ const Header = () => {
           <p className="h5-bold hidden md:block text-white">Projects Mastery</p>
         </Link>
 
-        <SignedIn>
-          <nav className="md:flex-between hidden w-full max-w-xs">
-            <NavItems />
-          </nav>
-        </SignedIn>
+        <nav className="md:flex-between hidden w-full max-w-xs">
+          <NavItems />
+        </nav>
 
         <div className=" flex items-center gap-4">
-          <SignedIn>
-            <div className="btn-color px-2 py-2 md:px-5 md:py-5 rounded-full">
+          {/* <div className="btn-color px-2 py-2 md:px-5 md:py-5 rounded-full">
               <UserButton afterSignOutUrl="/" />
-            </div>
-            <MobileNav />
-          </SignedIn>
+            </div> */}
+          <MobileNav />
 
-          <SignedOut>
-            <Button className="btn-color rounded-full shadow-md text-white h5-medium">
-              <Link href="/sign-in">Login</Link>
-            </Button>
-          </SignedOut>
+          {/* <Button className="btn-color hidden md:block rounded-full shadow-md text-white h5-medium">
+            <Link href="/sign-in">Login</Link>
+          </Button>
 
-          <SignedOut>
-            <Button className="btn-color rounded-full shadow-md text-white h5-medium">
-              <Link href="/sign-up">Signup</Link>
-            </Button>
-          </SignedOut>
+          <Button className="btn-color hidden md:block rounded-full shadow-md text-white h5-medium">
+            <Link href="/sign-up">Signup</Link>
+          </Button> */}
         </div>
       </div>
     </header>

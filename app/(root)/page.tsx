@@ -6,6 +6,7 @@ import { offers } from '@/constants';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import Categories from "@/components/Categories";
 // import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 
 interface FAQItem {
@@ -87,13 +88,13 @@ const page = () => {
               <Link href="/sign-up">Get Started</Link>
             </Button>
           </div>
-          <Image
-            src="/assets/images/hero.png"
-            alt="Hero Image"
-            width={550}
-            height={500}
-            className="max-h-[70vh] object-contain object-center 2xl:max-h-[50vh]"
-          />
+         <div className="mt-8 mx-10">
+        <video autoPlay loop muted className="w-full rounded-md">
+          <source src="/assets/hero.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+    </div>
+
         </div>
       </section>
       {/* <section><BackgroundGradientAnimation /></section> */}
@@ -102,7 +103,7 @@ const page = () => {
           <h2 className="h2-bold text-blue-500 my-5">What do we offer?</h2>
           <div className="grid gap-3 md:grid-cols-1 lg:grid-cols-1 2xl:gap-0">
             {offers.map((offer) => (
-              <div className="box_bg flex  flex-col md:flex-row px-2 py-2 rounded-md my-5 shadow-2xl">
+              <div className="box_bg flex  flex-col md:flex-row py-2 rounded-md my-5 shadow-2xl">
                 <div className="flex-1 md:w-[50%] mb-3 px-8">
                   <div className="flex h3-medium text-blue-500 my-3">
                     {offer.head}
@@ -113,16 +114,16 @@ const page = () => {
                     asChild
                     className="button w-full my-5 sm:w-fit"
                   >
-                    <Link href="/sign-up">{offer.button}</Link>
+                    <Link href={offer.route}>{offer.button}</Link>
                   </Button>
                 </div>
                 <div className="mt-8 md:mt-0 md:w-[50%]">
                   <Image
-                    src="/assets/images/hero.png"
+                    src={offer.image}
                     alt="Hero Image"
                     width={450}
                     height={100}
-                    className="max-h-[70vh] md:max-h-full object-contain object-center"
+                    className="max-h-[70vh] md:max-h-full object-contain rounded-md mt-10 object-center"
                   />
                 </div>
               </div>
@@ -140,9 +141,10 @@ const page = () => {
             curated collections.
           </p>
           <Button size="lg" asChild className="button w-full my-4 sm:w-fit">
-            <Link href="/sign-up">Get Started</Link>
+            <Link href="/web_templates">Get Started</Link>
           </Button>
         </div>
+        <Categories />
       </section>
       <section className=" sky_bg my-8 flex justify-center gap-8 md:gap-12">
         <div className="box_bg px-10 flex flex-col justify-center py-10 my-6 rounded-md shadow-2xl">
