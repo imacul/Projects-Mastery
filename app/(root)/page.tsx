@@ -108,7 +108,7 @@ const page = () => {
                   <div className="flex h3-medium text-blue-500 my-3">
                     {offer.head}
                   </div>
-                  <p className="p-medium-20 text-white">{offer.title}</p>
+                  <p className="text-sm md:text-lg text-white">{offer.title}</p>
                   <Button
                     size="lg"
                     asChild
@@ -133,10 +133,10 @@ const page = () => {
       </section>
       <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
         <div className="box_bg px-10 flex flex-col justify-center py-10 mt-6 rounded-md shadow-2xl">
-          <h1 className="h2-medium my-4 text-black">
+          <h1 className="md:h2-medium font-bold text-xl my-4 text-black">
             Unlock Your Digital Potential with Our Web Templates and Courses.
           </h1>
-          <p className="p-regular-20 my-4 md:p-regular-24 text-white">
+          <p className="text-base font-normal my-4 md:text-xl text-white">
             Start crafting your online presence and honing your skills with our
             curated collections.
           </p>
