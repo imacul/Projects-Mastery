@@ -24,7 +24,7 @@ export default function RootLayout({
       <Head>
         <meta
           name="google-site-verification"
-          content="Ulogdvfcdsxs_refvgtvfcgcvvcfdfcxdos"
+          content="YlUoElmPLKFdX3ncwEE_ct6UXctyiaWdN6IdpsMsNos"
         />
       </Head>
       <div className="bg-gradient">
