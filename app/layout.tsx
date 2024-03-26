@@ -21,15 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <meta
-          name="google-site-verification"
-          content="YlUoElmPLKFdX3ncwEE_ct6UXctyiaWdN6IdpsMsNos"
-        />
-      </Head>
-      <div className="bg-gradient">
-        <body className={poppins.className}>{children}</body>
-      </div>
+        <body className={`poppins.className, "bg_gradient"`}>{children}</body>
     </html>
   );
 }
