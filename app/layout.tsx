@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-        <body className={`poppins.className, "bg_gradient"`}>{children}</body>
+      <body className={`${poppins.className} bg-dark-2`}>{children}</body>
     </html>
   );
 }
