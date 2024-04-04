@@ -1,11 +1,10 @@
-import { Poppins } from "next/font/google";
+import { Kanit } from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
 import { Metadata } from "next";
 
-const poppins = Poppins({
+const Fonts = Kanit({
   subsets: ["latin"],
-  weight: ["200", "300", "400"],
+  weight: ["300", "400"],
   variable: "--font-sans",
 });
 
@@ -21,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} bg-dark-2`}>{children}</body>
+      <body className={`${Fonts.className} bg-gradient`}>{children}</body>
     </html>
   );
 }

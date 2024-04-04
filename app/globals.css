@@ -2,19 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+body{
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  scroll-behavior: smooth;
+}
+/* * {
   list-style: none;
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
+} */
+
+.bg-gradient{
+background: hsla(269, 39%, 40%, 1);
+
+background: linear-gradient(45deg, hsla(269, 39%, 40%, 1) 0%, hsla(231, 71%, 19%, 1) 53%, hsla(285, 70%, 18%, 1) 100%);
+
+background: -moz-linear-gradient(45deg, hsla(269, 39%, 40%, 1) 0%, hsla(231, 71%, 19%, 1) 53%, hsla(285, 70%, 18%, 1) 100%);
+
+background: -webkit-linear-gradient(45deg, hsla(269, 39%, 40%, 1) 0%, hsla(231, 71%, 19%, 1) 53%, hsla(285, 70%, 18%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#643E8C", endColorstr="#0E1954", GradientType=1 );
 }
 
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-poppins);
-}
 
 .glassmorphism {
   background: rgba(255, 255, 255, 0.25);
@@ -25,6 +38,18 @@ body {
   background: rgba(18, 17, 17, 0.25);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+}
+
+.btn-gradient{
+  background: hsla(280, 80%, 42%, 1);
+
+background: linear-gradient(135deg, hsla(280, 80%, 42%, 1) 0%, hsla(246, 92%, 25%, 1) 100%);
+
+background: -moz-linear-gradient(135deg, hsla(280, 80%, 42%, 1) 0%, hsla(246, 92%, 25%, 1) 100%);
+
+background: -webkit-linear-gradient(135deg, hsla(280, 80%, 42%, 1) 0%, hsla(246, 92%, 25%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8815C2", endColorstr="#10057A", GradientType=1 );
 }
 
 @layer utilities {
