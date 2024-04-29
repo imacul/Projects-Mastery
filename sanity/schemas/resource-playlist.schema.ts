@@ -1,6 +1,6 @@
 const schema = {
-  name: "TemplatesPlaylist",
-  title: "Templates Playlist",
+  name: "resourcePlaylist",
+  title: "Resource Playlist",
   type: "document",
   fields: [
     {
@@ -10,13 +10,13 @@ const schema = {
       validation: (Rule: any) => Rule.required(),
     },
     {
-      name: "templates",
-      title: "Templates",
+      name: "resources",
+      title: "Resources",
       type: "array",
       of: [
         {
           type: "reference",
-          to: [{ type: "Templates" }],
+          to: [{ type: "resource" }],
         },
       ],
     },

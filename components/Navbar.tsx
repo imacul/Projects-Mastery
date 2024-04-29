@@ -12,14 +12,14 @@ const Navbar = () => {
   const pathName = usePathname();
 
   return (
-    <nav className="flex-between fixed z-10 w-full bg-dark-1 px-6 py-4 lg:px-10">
+    <nav className="flex-between fixed shadow-xl z-10 w-full bg-dark-1 px-6 py-4 lg:px-10">
         <Link href="/" className="flex flex-center gap-1">
           <Image
             src="/images/logo.png"
-            width={62}
-            height={62}
+            width={82}
+            height={82}
             alt="projects mastery logo"
-            className="max-sm:text-xl"
+            className="width-auto height-auto"
           />
           <p className="text-[26px] font-extrabold text-white max-sm:hidden">
             PM

@@ -5,8 +5,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-        <main>{children}</main>
-    </html>
+    <main  className="bg-gradient">
+        {children}
+    </main>
   );
 }

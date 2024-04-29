@@ -1,8 +1,8 @@
-import  Templates  from './templates.schema';
-import  TemplatesPlaylist  from './templates-playlist.schemas';
+import templates from './templates';
+import resource from "./resource.schema";
+import resourcePlaylist from "./resource-playlist.schema";
 
-const schemas = [
-    Templates, TemplatesPlaylist,
-]
+
+const schemas = [templates, resource, resourcePlaylist];
 
 export default schemas;
