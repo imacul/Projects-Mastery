@@ -120,7 +120,7 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8815C2", en
   }
 
   .paddings {
-    @apply sm:p-16 xs:p-8 px-6 py-12;
+    @apply sm:p-16 sm:p-8 px-6 py-12;
   }
 
   .y-paddings {

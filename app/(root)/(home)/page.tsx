@@ -1,12 +1,16 @@
 import Filters from "@/components/Filters";
 import ResourceCard from "@/components/ResourceCard";
 import SearchForm from "@/components/SearchForm";
-import { Button } from "@/components/ui/button";
-import { Pacifico } from "next/font/google";
 import Link from "next/link";
-import { getResources } from '@/sanity/actions';
+import Header from "@/components/Header";
 
 
+import { Button } from "@/components/ui/button";
+import { getResources, getResourcesPlaylist } from '@/sanity/actions';
+import { Pacifico } from "next/font/google";
+
+
+export const revalidate = 900;
 
 const Fonts = Pacifico({
   subsets: ["latin"],
@@ -14,12 +18,21 @@ const Fonts = Pacifico({
   variable: "--font-sans",
 });
 
-const Home = async () => {
+interface props{
+  searchParams: {[key: string]: string | undefined}
+}
+
+const Home = async ({searchParams}: props) => {
+  console.log(searchParams);
   const resources = await getResources({
-    query: '',
-    category: '',
+    query: searchParams?.query || '',
+    category: searchParams?.category || '',
     page: '1',
   });
+
+  const resourcesPlaylist = await getResourcesPlaylist();
+
+  console.log(resourcesPlaylist);
 
 
   return (
@@ -45,30 +58,60 @@ const Home = async () => {
           </Link>
         </div>
         <SearchForm />
-      </section>
-      <section
-        className="flex-center mt-6 w-full flex-col sm:mt-20"
-        id="explore"
-      >
         <Filters />
-        <div className="mt-12 flex w-full flex-wrap justify-center gap-16 sm:justify-start">
-           {resources?.length > 0 ? (
-            resources.map((resource: any) => (
+      </section>
+
+      {(searchParams?.query ||
+        searchParams?.category ||
+        !searchParams?.query ||
+        !searchParams?.category) && (
+        <section
+          className="flex-center mt-6 w-full flex-col sm:mt-20"
+          id="explore"
+        >
+          <Header
+            query={searchParams?.quary || ""}
+            category={searchParams?.category || ""}
+          />
+          <div className="mt-12 flex w-full flex-wrap justify-center gap-16 sm:justify-start">
+            {resources?.length > 0 ? (
+              resources.map((resource: any) => (
+                <ResourceCard
+                  key={resource._id}
+                  title={resource.title}
+                  id={resource._id}
+                  image={resource.image}
+                  downloadNumber={resource.views}
+                  downloadLink={resource.downloadLink}
+                />
+              ))
+            ) : (
+              <p className="font-bold text-xl text-white">No resources found</p>
+            )}
+          </div>
+        </section>
+      )}
+
+      {resourcesPlaylist.map((item: any) => (
+        <section
+          key={item._id}
+          className="flex-center mt-6 w-full flex-col sm:mt-20"
+        >
+          <h1 className="heading3 self-start text-white">{item.title}</h1>
+          <div className="mt-12 flex flex-wrap w-full justify-center gap-16 sm:justify-start">
+            {item.resources.map((resource: any) => (
               <ResourceCard
                 key={resource._id}
                 title={resource.title}
                 id={resource._id}
                 image={resource.image}
-                downloadNumber={resource.views}               
+                downloadNumber={resource.views}
+                downloadLink={resource.downloadLink}
               />
-            ))
-          ): (
-           <p className="font-bold text-xl text-white">
-                No resources found
-            </p>
-          )}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      ))}
     </main>
   );
 };
