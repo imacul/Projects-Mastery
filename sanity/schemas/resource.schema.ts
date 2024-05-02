@@ -1,3 +1,8 @@
+interface Resource {
+  type: string;
+  // Add other properties as needed
+}
+
 const schema = {
   name: "resource",
   title: "Resource",
@@ -7,7 +12,7 @@ const schema = {
       name: "title",
       title: "Title",
       type: "string",
-      require,
+      required: true,
       validation: (Rule: any) => Rule.required(),
     },
     {
@@ -43,8 +48,36 @@ const schema = {
       type: "string",
       validation: (Rule: any) => Rule.required(),
       options: {
-        list: ["frontend", "backend", "next 13", "fullstack", "other"],
+        list: [
+          "HTML/CSS Templates",
+          "React Templates",
+          "Angular Templates",
+          "Vue Templates",
+          "WordPress Themes",
+          "Landing Pages",
+          "E-commerce Templates",
+          "Other",
+        ],
       },
+    },
+    {
+      name: "type",
+      title: "Type",
+      type: "string",
+      options: {
+        list: ["free", "premium"],
+      },
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "text",
+    },
+    {
+      name: "price",
+      title: "Price",
+      type: "number",
+      hidden: ({ parent }: { parent: Resource }) => parent.type !== "premium",
     },
   ],
 };

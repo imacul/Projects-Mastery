@@ -11,6 +11,13 @@ const Fonts = Kanit({
 export const metadata: Metadata = {
   title: "Projects Mastery",
   description: "Projects Mastery: Elevating Web Development Excellence",
+  other: {
+    "twitter:image": "/images/pm_thumbnail.png",
+    "twitter:card": "summary_large_image",
+    "og:url": "projects-mastery.vercel.app",
+    "og:image": "/images/pm_thumbnail.png",
+    "og:type": "website",
+  },
 };
 
 export default function RootLayout({
