@@ -37,13 +37,16 @@ export const getResources = async (params: GetResourcesParams) => {
   try {
     const resources = await readClient.fetch(
       groq`${buildQuery({
-        type: 'resource',
+        type: "resource",
         query,
         category,
         page: parseInt(page),
       })}{
         title,
+        price,
         _id,
+        type,
+        description,
         downloadLink,
         "image": poster.asset->url,
         views,

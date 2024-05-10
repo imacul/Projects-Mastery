@@ -30,9 +30,9 @@ const Home = async ({searchParams}: props) => {
     page: '1',
   });
 
-  const resourcesPlaylist = await getResourcesPlaylist();
+  // const resourcesPlaylist = await getResourcesPlaylist();
 
-  console.log(resourcesPlaylist);
+  // console.log(resourcesPlaylist);
 
 
   return (
@@ -81,18 +81,21 @@ const Home = async ({searchParams}: props) => {
                   title={resource.title}
                   id={resource._id}
                   image={resource.image}
+                  description={resource.description}
+                  price={resource.price}
                   downloadNumber={resource.views}
                   downloadLink={resource.downloadLink}
+                  type={resource.type}
                 />
               ))
             ) : (
-              <p className="font-bold text-xl text-white">No resources found</p>
+              <p className="font-bold text-xl text-white">Oops! no results found.</p>
             )}
           </div>
         </section>
       )}
 
-      {resourcesPlaylist.map((item: any) => (
+      {/* {resourcesPlaylist.map((item: any) => (
         <section
           key={item._id}
           className="flex-center mt-6 w-full flex-col sm:mt-20"
@@ -105,13 +108,16 @@ const Home = async ({searchParams}: props) => {
                 title={resource.title}
                 id={resource._id}
                 image={resource.image}
+                description={resource.description}
+                price={resource.price}
                 downloadNumber={resource.views}
                 downloadLink={resource.downloadLink}
+                type={resource.type}
               />
             ))}
           </div>
         </section>
-      ))}
+      ))} */}
     </main>
   );
 };

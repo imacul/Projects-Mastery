@@ -5,7 +5,17 @@ import { Button } from './ui/button';
 import { useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 
-const links = ["All", "frontend", "backend", "fullstack"];
+const links = [
+  "All",
+  "HTML/CSS Templates",
+  "React Templates",
+  "Angular Templates",
+  "Vue Templates",
+  "WordPress Themes",
+  "Landing Pages",
+  "E-commerce Templates",
+  "Other",
+];
 
 const Filters = () => {
   const [active, setActive] = useState('');
@@ -13,28 +23,49 @@ const Filters = () => {
   const router = useRouter();
 
   const handleFilter = (link: string) => {
-    let newUrl = "";
+  console.log("Filter link clicked:", link);
+  console.log("Current searchParams:", searchParams);
 
-    if (active === link) {
-      setActive("");
+  let newUrl = "";
 
+  if (active === link) {
+    setActive("");
+
+    if (searchParams.toString() === "") {
+      const params = new URLSearchParams();
+      params.set("category", "");
       newUrl = formUrlQuery({
-        params: searchParams.toString(),
-        keysToRemove: ["category"],
+        params: params.toString(),
       });
     } else {
-      setActive(link);
-
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete("category");
       newUrl = formUrlQuery({
-        params: searchParams.toString(),
-        key: "category",
-        value: link.toLowerCase(),
+        params: params.toString(),
       });
     }
+  } else {
+    setActive(link);
 
-    router.push(newUrl, { scroll: false });
-  };
+    if (searchParams.toString() === "") {
+      const params = new URLSearchParams();
+      params.set("category", link.toLowerCase());
+      newUrl = formUrlQuery({
+        params: params.toString(),
+      });
+    } else {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set("category", link.toLowerCase());
+      newUrl = formUrlQuery({
+        params: params.toString(),
+      });
+    }
+  }
 
+  router.push(newUrl, { scroll: false });
+};
+
+  
   return (
     <ul className="text-white body-text no-scrollbar flex w-full max-w-full gap-2 overflow-auto py-12 sm:max-w-2xl">
       {links.map((link) => (
