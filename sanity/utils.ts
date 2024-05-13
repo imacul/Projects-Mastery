@@ -11,6 +11,8 @@ interface BuildQueryParams {
 export function buildQuery(params: BuildQueryParams) {
   const { type, query, category, page = 1, perPage = 10 } = params;
 
+  console.log("Constructed query:", query);
+
   const conditions = [`*[_type=="${type}"`];
 
   if (query) {

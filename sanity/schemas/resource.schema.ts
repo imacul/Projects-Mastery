@@ -58,6 +58,7 @@ const schema = {
       name: "type",
       title: "Type",
       type: "string",
+       validation: (Rule: any) => Rule.required(),
       options: {
         list: ["free", "premium"],
       },

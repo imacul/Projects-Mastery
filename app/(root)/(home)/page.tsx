@@ -4,11 +4,9 @@ import SearchForm from "@/components/SearchForm";
 import Link from "next/link";
 import Header from "@/components/Header";
 
-
 import { Button } from "@/components/ui/button";
-import { getResources, getResourcesPlaylist } from '@/sanity/actions';
+import { getResources, getResourcesPlaylist } from "@/sanity/actions";
 import { Pacifico } from "next/font/google";
-
 
 export const revalidate = 900;
 
@@ -18,22 +16,21 @@ const Fonts = Pacifico({
   variable: "--font-sans",
 });
 
-interface props{
-  searchParams: {[key: string]: string | undefined}
+interface props {
+  searchParams: { [key: string]: string | undefined };
 }
 
-const Home = async ({searchParams}: props) => {
-  console.log(searchParams);
+const Home = async ({ searchParams }: props) => {
+  // console.log(searchParams);
   const resources = await getResources({
-    query: searchParams?.query || '',
-    category: searchParams?.category || '',
-    page: '1',
+    query: searchParams?.query || "",
+    category: searchParams?.category || "",
+    page: "1",
   });
 
   // const resourcesPlaylist = await getResourcesPlaylist();
 
   // console.log(resourcesPlaylist);
-
 
   return (
     <main>
@@ -89,7 +86,9 @@ const Home = async ({searchParams}: props) => {
                 />
               ))
             ) : (
-              <p className="font-bold text-xl text-white">Oops! no results found.</p>
+              <p className="font-bold text-xl text-white">
+                Oops! no results found.
+              </p>
             )}
           </div>
         </section>

@@ -3,6 +3,8 @@ import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
 import { Button } from "./ui/button";
 
+export const revalidate = 900;
+
 interface Props {
   id: string;
   title: string;

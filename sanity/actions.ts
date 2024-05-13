@@ -1,6 +1,6 @@
-import { groq } from 'next-sanity';
-import { readClient } from './lib/client';
-import { buildQuery } from './utils';
+import { groq } from "next-sanity";
+import { readClient } from "./lib/client";
+import { buildQuery } from "./utils";
 
 interface GetResourcesParams {
   query: string;
@@ -29,10 +29,12 @@ export const getResourcesPlaylist = async () => {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 export const getResources = async (params: GetResourcesParams) => {
   const { query, category, page } = params;
+
+  console.log("getResources called with category:", category);
 
   try {
     const resources = await readClient.fetch(
@@ -49,7 +51,6 @@ export const getResources = async (params: GetResourcesParams) => {
         description,
         downloadLink,
         "image": poster.asset->url,
-        views,
         slug,
         category
       }`
@@ -59,4 +60,10 @@ export const getResources = async (params: GetResourcesParams) => {
   } catch (error) {
     console.log(error);
   }
-}
+};
+
+
+
+ 
+
+
